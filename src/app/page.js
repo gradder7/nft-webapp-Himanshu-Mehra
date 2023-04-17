@@ -87,8 +87,9 @@ const Login = () => {
     const login = async () => {
       console.log(address);
       setLoading(true);
-      const token = await getSignInToken(address);
-      const user = await signInWithToken(token);
+      // const token = await getSignInToken(address);
+      // const user = await signInWithToken(token);
+      router.replace("/myProfile/");
       setLoading(false);
       console.log(user);
     };
