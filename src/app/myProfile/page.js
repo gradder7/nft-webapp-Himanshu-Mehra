@@ -30,7 +30,7 @@ const MyProfile = () => {
     //   if (!user) router.replace("/");
     //   else {
     //     setAddress(user.uid);
-    //     setLoading(false);
+    setLoading(false);
     //   }
     // });
     // return unsubscribe;

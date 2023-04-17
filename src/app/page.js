@@ -29,7 +29,7 @@ import {
 import { auth } from "@/utils/authService/firebase";
 
 const Login = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [doSignInFlow, setDoSignInFlow] = useState(false);
   const router = useRouter();
   const { address, isConnected } = useAccount();
@@ -68,19 +68,19 @@ const Login = () => {
 
   useEffect(() => {
     // initializeAdmin();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
-      if (user) {
-        console.log(user);
-        router.replace("/myProfile/");
-      } else {
-        disconnect();
-        setLoading(false);
-      }
-    });
-    return () => {
-      unsubscribe();
-    };
+    // const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //   console.log(user);
+    //   if (user) {
+    //     console.log(user);
+    //     router.replace("/myProfile/");
+    //   } else {
+    //     disconnect();
+    //     setLoading(false);
+    //   }
+    // });
+    // return () => {
+    //   unsubscribe();
+    // };
   }, []);
 
   useEffect(() => {
