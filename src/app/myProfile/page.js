@@ -24,15 +24,16 @@ const MyProfile = () => {
   const [address, setAddress] = useState("");
   const router = useRouter();
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
-      if (!user) router.replace("/");
-      else {
-        setAddress(user.uid);
-        setLoading(false);
-      }
-    });
-    return unsubscribe;
+    setAddress("0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0");
+    // const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //   console.log(user);
+    //   if (!user) router.replace("/");
+    //   else {
+    //     setAddress(user.uid);
+    //     setLoading(false);
+    //   }
+    // });
+    // return unsubscribe;
   }, []);
 
   if (loading) {
