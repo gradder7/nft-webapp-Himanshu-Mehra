@@ -91,7 +91,7 @@ const Login = () => {
       // const user = await signInWithToken(token);
       router.replace("/myProfile/");
       setLoading(false);
-      console.log(user);
+      // console.log(user);
     };
 
     if (isConnected && doSignInFlow) login().then().catch();
