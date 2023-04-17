@@ -30,7 +30,7 @@ const AssetViewer = ({ address }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="flex p-6">
+              <div className="flex p-3">
                 <div className="w-16 h-16">
                   <img
                     src={token.tokenInfo.logoUrl || { logo }}
@@ -39,10 +39,10 @@ const AssetViewer = ({ address }) => {
                     loading="lazy"
                   />
                 </div>
-                <div className="ml-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <div className="ml-4 grow">
+                  <div className="flex ">
+                    <div className="flex ">
+                      <h3 className="text-lg  font-medium text-gray-900 w-[70px] overflow-hidden text-ellipsis whitespace-nowrap">
                         {token.tokenInfo.name}
                       </h3>
                     </div>
@@ -59,11 +59,13 @@ const AssetViewer = ({ address }) => {
                           Math.round(token.tokenInfo.volume * 100) / 100
                         )}{" "}
                       </p>
+                      <p className=" text-sm text-gray-500">
+                        <span className="font-medium text-gray-900">
+                          Balance:
+                        </span>{" "}
+                        ${Math.round(token.balance * 100) / 100}
+                      </p>
                     </div>
-                  </div>
-                  <div className="mt-2 text-sm text-gray-500">
-                    <span className="font-medium text-gray-900">Balance:</span>{" "}
-                    ${Math.round(token.balance * 100) / 100} ({token.network})
                   </div>
                 </div>
               </div>

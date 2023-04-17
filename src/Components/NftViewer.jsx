@@ -20,6 +20,7 @@ function NftViewer({ address, chain }) {
         .catch((err) => {
           console.log(err);
         });
+      // console.log("loadnig=>",loading);
     }
   }, [address, chain]);
 

@@ -16,6 +16,7 @@ export default async function fetchAssets(address) {
       },
       body: JSON.stringify({ endPoint }),
     }).then((res) => res.json());
+    console.log('=<>',response);
   } catch (err) {
     console.log(err);
   }

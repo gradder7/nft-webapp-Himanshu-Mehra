@@ -1,4 +1,5 @@
 // import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import {
   REACT_APP_ALCHEMY_ARBITITUM_ENDPOINT,
   REACT_APP_ALCHEMY_ETHEREUM_ENDPOINT,
@@ -7,6 +8,7 @@ import {
   REACT_APP_COVALENT_API_END_POINT,
   REACT_APP_COVALENT_API_KEY,
 } from "./getEndPoints";
+import { ChevronLeftIcon } from "@heroicons/react/outline";
 
 const getEndpoint = (chain) => {
   switch (chain) {
@@ -34,6 +36,7 @@ const fetchNFTs = async (
   let endpoint = getEndpoint(chain);
 
   const data = { owner, contractAddress, endpoint };
+
   setLoading(true);
   let result = await fetch("/api/getNFTsAddress", {
     method: "POST",
@@ -45,11 +48,17 @@ const fetchNFTs = async (
 
   if (result.error) {
     setNFTs(null);
+    toast.warn("No NFTs are in this address!");
     setLoading(false);
   } else if (result.length) {
     let fullfilledNFTs = result.filter((NFT) => NFT.status == "fulfilled");
+
     setNFTs(fullfilledNFTs);
     setLoading(false);
+  } else {
+    toast.warning("No NFTs are in this address!");
+    setLoading(false);
+    setNFTs(null);
   }
 };
 

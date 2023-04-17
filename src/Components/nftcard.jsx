@@ -10,7 +10,7 @@ const NftCard = ({
   floorPrice,
 }) => {
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4 h-full">
+    <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 px-2 mb-4 h-full py-2">
       <div className="bg-white rounded-md overflow-hidden shadow h-full cursor-pointer hover:shadow-2xl transition-shadow duration-300">
         <img
           className="w-full h-64 object-cover"
@@ -32,9 +32,9 @@ const NftCard = ({
             {description ? description.slice(0, 100) : "No Description"}
           </p>
           {/*  */}
-          <p className="text-sm text-gray-600 h-16 overflow-hidden">
+          <p className=" text-gray-600 h-16 overflow-hidden text-md font-extrabold">
             Floor Price:
-            {floorPrice ? floorPrice + " ETH" : "Not available"}
+            {floorPrice ? " " + floorPrice + " ETH" : "Not available"}
           </p>
         </div>
         <div className="bg-green-300 px-4 py-2 flex justify-between items-center">
