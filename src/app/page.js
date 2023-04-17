@@ -39,16 +39,20 @@ const Login = () => {
   const { disconnect } = useDisconnect();
 
   const getSignInToken = async (address) => {
-    const res = await fetch("/api/getSignInToken", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ address }),
-    });
-    const token = await res.json();
-    console.log(token);
-    return token?.token;
+    try {
+      const res = await fetch("/api/getSignInToken", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ address }),
+      });
+      const token = await res.json();
+      console.log(token);
+      return token?.token;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const signInWithToken = async (token) => {

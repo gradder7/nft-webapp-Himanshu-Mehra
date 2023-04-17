@@ -22,5 +22,11 @@ export async function POST(request) {
     });
   } catch (err) {
     console.log(err);
+    new Response(JSON.stringify(err), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+      },
+    });
   }
 }
