@@ -61,11 +61,7 @@ const Nav = ({ address }) => {
           </Link>
         </div>
       ) : (
-        {
-          /* <Link className="py-2 px-4 rounded-lg bg-red" to={"/login"}>
-          Connect
-        </Link> */
-        }
+
       )}
     </div>
   );

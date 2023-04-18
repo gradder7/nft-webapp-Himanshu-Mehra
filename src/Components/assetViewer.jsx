@@ -61,7 +61,7 @@ const AssetViewer = ({ address }) => {
                       </p>
                       <p className=" text-sm text-gray-500">
                         <span className="font-medium text-gray-900">
-                          Balance:
+                          Rate:
                         </span>{" "}
                         ${Math.round(token.balance * 100) / 100}
                       </p>

@@ -6,14 +6,16 @@ import { useEffect, useState } from "react";
 function NftViewer({ address, chain }) {
   const [NFTs, setNFTs] = useState();
   const [loading, setLoading] = useState(false);
+  
 
-  let user = "0x928c2909847B884ba5Dd473568De6382b028F7b8"; //etherium
+  //for testing purposes this data
+  // let user = "0x928c2909847B884ba5Dd473568De6382b028F7b8"; //etherium
   // let user = "0x928c2909847B884ba5Dd473568De6382b028F7b8";//polygun//arbititum//etherium
   // let user = "0xE618772486bca061e13dAf25cDee0371BAd1CE12"; //opmitism
 
   const resfuc = useEffect(() => {
     if (address) {
-      fetchNFTs(user, setNFTs, chain, "", setLoading)
+      fetchNFTs(address, setNFTs, chain, "", setLoading)
         .then((data) => {
           console.log(data);
         })

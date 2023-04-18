@@ -2,9 +2,9 @@ import {
   REACT_APP_COVALENT_API_KEY,
   REACT_APP_COVALENT_API_END_POINT,
 } from "./getEndPoints";
+import { toast } from "react-toastify";
 
 export default async function fetchAssets(address) {
-  address = "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0";
   const endPoint = `${REACT_APP_COVALENT_API_END_POINT}/1/address/${address}/balances_v2/?key=${REACT_APP_COVALENT_API_KEY}&nft=false&no-nft-fetch=true&quote-currency=USD&page-size=1000`;
   let response = {};
 
@@ -16,7 +16,10 @@ export default async function fetchAssets(address) {
       },
       body: JSON.stringify({ endPoint }),
     }).then((res) => res.json());
-    console.log('=<>',response);
+    if (response.tokens && response.tokens.length === 0) {
+      toast.warn("No Assets are in this address!");
+    }
+    console.log("=<>", response);
   } catch (err) {
     console.log(err);
   }

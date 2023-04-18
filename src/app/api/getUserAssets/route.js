@@ -7,9 +7,13 @@ function formatDataAndSort(data) {
       const decimals = token.supports_erc.includes("erc20")
         ? token.contract_decimals
         : 0;
-      const balance = decimals
-        ? formatUnits(token.balance, decimals)
-        : token.balance;
+      // const balance = decimals
+      //   ? formatUnits(token.balance, decimals)
+      //   : token.balance;
+
+      const valueBal = decimals ? token.balance / 10 ** decimals : token.balance;
+      const balance= valueBal * token.quote_rate;
+      console.log("my balance=>", balance);
 
       return {
         tokenInfo: {
