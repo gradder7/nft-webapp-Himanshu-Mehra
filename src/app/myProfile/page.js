@@ -25,15 +25,15 @@ const MyProfile = () => {
   const router = useRouter();
   useEffect(() => {
     setAddress("0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0");
-    // const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //   console.log(user);
-    //   if (!user) router.replace("/");
-    //   else {
-    //     setAddress(user.uid);
-    setLoading(false);
-    //   }
-    // });
-    // return unsubscribe;
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (!user) router.replace("/");
+      else {
+        setAddress(user.uid);
+        setLoading(false);
+      }
+    });
+    return unsubscribe;
   }, []);
 
   if (loading) {

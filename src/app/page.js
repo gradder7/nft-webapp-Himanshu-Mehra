@@ -67,31 +67,31 @@ const Login = () => {
   };
 
   useEffect(() => {
-    // initializeAdmin();
-    // const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //   console.log(user);
-    //   if (user) {
-    //     console.log(user);
-    //     router.replace("/myProfile/");
-    //   } else {
-    //     disconnect();
-    //     setLoading(false);
-    //   }
-    // });
-    // return () => {
-    //   unsubscribe();
-    // };
+    initializeAdmin();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (user) {
+        console.log(user);
+        router.replace("/myProfile/");
+      } else {
+        disconnect();
+        setLoading(false);
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   useEffect(() => {
     const login = async () => {
       console.log(address);
       setLoading(true);
-      // const token = await getSignInToken(address);
-      // const user = await signInWithToken(token);
+      const token = await getSignInToken(address);
+      const user = await signInWithToken(token);
       router.replace("/myProfile/");
-      setLoading(false);
-      // console.log(user);
+
+      console.log(user);
     };
 
     if (isConnected && doSignInFlow) login().then().catch();
