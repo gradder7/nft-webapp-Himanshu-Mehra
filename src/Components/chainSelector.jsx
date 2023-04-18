@@ -1,7 +1,7 @@
 const ChainSelector = ({ setBlockchain, chain }) => {
   return (
     <>
-      <h1 className="mt-3">
+      <h1 className="mt-3 text-white">
         Please select the newtork to fetch the NFT's only.
       </h1>
       <div className="flex gap-6 md:gap-12 items-center text-white my-4">
