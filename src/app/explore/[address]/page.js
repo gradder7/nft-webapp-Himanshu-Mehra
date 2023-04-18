@@ -37,7 +37,7 @@ const Explore = (props) => {
               NFT - Explorer
             </h1>
             <p>
-              Multichain inspector to find NFTs by owner and contract address{" "}
+              Find NFTs by owner and contract address{" "}
             </p>
           </div>
           <div className="flex flex-col items-center justify-center mb-4 w-3/4 md:w-1/3 gap-y-2 ">
